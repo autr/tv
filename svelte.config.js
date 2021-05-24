@@ -3,6 +3,8 @@ import adapter from '@sveltejs/adapter-static'
 
 /** @type {import('@sveltejs/kit').Config} */
 
+const NOROUTER = false
+
 const config = {
 	kit: {
 		adapter: adapter(),
@@ -15,7 +17,7 @@ const config = {
 		prerender: {
 			crawl: true
 		},
-		router: process.env.NODE_ENV == 'development' ? false : true
+		router: process.env.NODE_ENV == 'development' && NOROUTER ? false : true
 	}
 }
 

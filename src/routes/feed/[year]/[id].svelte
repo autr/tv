@@ -41,7 +41,7 @@
 
 <div id="feed-item" class="mt1 flex column-center-start sm-container">
 	<div class="feed-item-media">
-		<PostMedia {...post} autohide={false} />
+		<PostMedia {...post} autohide={true} />
 	</div>
 	<PostText {...post} />
 	<nav id="feed-nav" class="mtb1 flex row-center-center sm-max-100">

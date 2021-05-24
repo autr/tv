@@ -26,7 +26,7 @@
 
 	$: playing = $centroid?.id && id ? $centroid.id.indexOf(id) != -1 : false
 </script>
-<nav class="m1 flex row-center-center sm-max-none">
+<nav class="m1 flex row-center-center">
 	{#if video}
 		<span on:click={e => $autoplay = !$autoplay}>
 			<All 

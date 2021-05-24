@@ -10,7 +10,8 @@
 <script>
 	import { browser, dev } from '$app/env'
 	import Logo from '$lib/Logo.svelte'
-	import { eze, burger, pkg, info } from '$lib/universal/stores.js'
+	import { eze, burger, pkg, info, autoplay, controls } from '$lib/universal/stores.js'
+	import utils from '$lib/universal/utils.js'
 	import { dark } from '$lib/rad-and-cool-icons/lib/stores.js'
 	import { onMount } from 'svelte'
 	import Title from '$lib/Title.svelte'
@@ -36,6 +37,8 @@
 		assets: '/static',
 		copy: dev || !browser
 	})
+	autoplay.set( true ) //utils.device() == 'desktop' )
+	// controls.set( utils.device() != 'desktop' )
 
 	let layout = 'two-col'
 	layout = 'top-bar'

@@ -3,7 +3,7 @@
 	import { tweened } from 'svelte/motion'
 
 
-	import { scroll, centroid, autoplay, audio, eze } from './stores.js'
+	import { scroll, centroid, autoplay, audio, eze, controls } from './stores.js'
 	import { onMount, onDestroy } from 'svelte'
 	import Vimeo from './Vimeo.svelte'
 	import utils from './utils.js'
@@ -16,7 +16,7 @@
 	export let loop = true
 	export let threshold = 0.75
 	export let orientation = null
-	export let paused = !$autoplay
+	export let paused = true //!$autoplay
 	export let root
 	export let force = false
 
@@ -58,13 +58,6 @@
 		const out = url.slice( 0, idx ) + `.${o?.width || 0}x${o?.height || 0}x${o?.quality || 80}x${o?.fit || 'cover'}` + url.slice( idx )
 		return out
 	}
-
-	let error = null
-	let inited = false
-	onMount( async e => {
-		inited = true
-		setTimeout( e => update( $scroll, $centroid ), 100 )
-	})
 
 
 
@@ -170,6 +163,8 @@
 
 	}
 
+	let videoEl
+
 
 	$: colors = colors_( file )
 
@@ -185,6 +180,24 @@
 	$: autoplayUpdated( $autoplay )
 
 	let timeout 
+
+	let error = null
+	let inited = false
+	onMount( async e => {
+		inited = true
+		setTimeout( e => {
+			update( $scroll, $centroid )
+		}, 100 )
+	})
+
+	function playing( paused_ ) {
+		if (!paused_ && !inited) paused = true
+	}
+
+	$: playing( paused )
+
+	function onVideoPlay() {
+	}
 
 	function update( scroll_, centroid_ ) {
 
@@ -217,6 +230,7 @@
 				console.log(`[PostItem] ✨☯️✨  switching to new centroid "${autohide}" with size: ${width}/${height} (${ratio}), from position ${center} ${CENTER}`, {vidSrc,posterSrc})
 				$centroid = { center, id: autohide, title: file.title }
 			}
+
 			if (desktop) paused = $centroid.id != autohide || !$autoplay
 		}, 20)
 	}
@@ -229,7 +243,7 @@
 
 	let meter = 1
 
-	$: desktop = device == 'desktop'
+	$: desktop = true //device == 'desktop'
 	$: autoplay_final = $autoplay && $centroid.id == autohide
 
 	$: identifiers = {
@@ -240,6 +254,38 @@
 		orientation: 'media-orientation-' + orientation,
 		misc: 'media block rel w100pc ' + class_
 	}
+
+	function onVideoClick( e ) {
+		if (e.target.requestFullScreen) {
+		  e.target.requestFullScreen();
+		} else if (e.target.mozRequestFullScreen) {
+		  e.target.mozRequestFullScreen();
+		} else if (e.target.webkitRequestFullScreen) {
+		  e.target.webkitRequestFullScreen();
+		} else {
+			$autoplay = !$autoplay
+		}
+	}
+
+	let ogAudio = false
+	let ogPaused = false
+	function onFullscreenChange( e, v ) {
+		const state = document.fullscreenElement == e.target
+
+		if (state) {
+			ogAudio = $audio
+			ogPaused = paused
+			$autoplay = true
+		}
+		if (!$audio && state) $audio = true
+		if (paused && state) paused = false
+
+		if (!state) {
+			$audio = ogAudio
+			paused = ogPaused
+		}
+	}
+
 
 </script>
 
@@ -262,6 +308,10 @@
 					{title} {alt}  />
 			{:else if is('video')} 
 				<video 
+					bind:this={ videoEl }
+					on:play={ onVideoPlay }
+					on:click={ onVideoClick }
+					on:fullscreenchange={ onFullscreenChange }
 					class="embed fill w100pc h-auto z-index66"
 					class:active={!hidden}
 					class:playing={!paused}
@@ -269,13 +319,14 @@
 					poster={ hidden ? pixel : posterSrc }
 					{width}
 					{height}
+					playsinline
 					src={ hidden ? pixel : vidSrc }
 					muted={!$audio}
-					autoplay={  $autoplay }
+					autoplay={  $autoplay && !paused }
 					{loop}
 					bind:paused={ paused }
 					preload={ hidden ? 'none' : 'auto' }
-					controls={false}
+					controls={$controls}
 					{title} {alt}  />
 			{:else if is('vimeo')}
 				<Vimeo 

@@ -80,18 +80,18 @@
 <nav id="feed-nav" class="flex  ptb0-5 row-stretch-center  bb  wrap">
 	<div class="flex row wrap rel grow w100pc">
 		{#each posts.years as year}
-			<label class="radio mtb0-5 activ8">
-				<a 
-					class="unclickable flex row-center-center"
-					on:click={ e => onClick( e, year ) }
-					href={ href( year ) }>
+			<a 
+				class="unclickable flex row-center-center"
+				on:click={ e => onClick( e, year ) }
+				href={ href( year ) }>
+				<label class="radio ptb0-5 activ8">
 						<input 
 							type="checkbox" 
 							checked={ checked[year] } />
 						<span />
 						{year}
-				</a>
-			</label>
+				</label>
+			</a>
 		{/each}
 		<div class="align-self-flex-end grow flex row-flex-end-center">
 			<a href={random} class="unclickable ptb0-5">random</a>

@@ -21,6 +21,7 @@
 <!-- <svelte:window on:scroll={ e => set( e, 'window')} /> -->
 
 <div 
+    id="layout-top-bar"
     on:click
     on:hover
     bind:this={el}
