@@ -7,6 +7,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		target: '#svelte',
+		appDir: 'app',
 		ssr: true,
 		files: {
 			assets: 'static'

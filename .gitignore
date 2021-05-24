@@ -11,3 +11,6 @@ pnpm-lock.yaml
 src/lib/ezelte
 src/lib/rad-and-cool-icons
 .svelte-kit
+docs/_app
+docs/kit
+.npmrc
