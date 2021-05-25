@@ -14,7 +14,7 @@
 	export let overlay = false
 	
 	const menu = {
-		'Feed': '/feed',
+		'Feed': '/feed/',
 		'Projects': '/works',
 		// 'About': '/about',
 		// 'Code': '/code',
