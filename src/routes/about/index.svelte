@@ -45,6 +45,10 @@
 		class: 'bb'
 	}
 
+	$: btn = {
+		class: 'flex button text-center sm-max-100'
+	}
+
 	$:format = utils.device() != 'desktop' ? '576x576x95' : '996x420x95xfit'
 
 	const block  = "flex column-start-start wrap basis0pc grow cmb1 mb0 sm-max-100"
@@ -73,8 +77,8 @@
 		<nav class="{block}">
 			<Title>Contact</Title>
 			<p>I'm trying to communicate less with social media - emails welcomed! Mailing list for updates (as they come).</p>
-			<a href="/subscribe" class="button text-center sm-max-100">subscribe to mailing list</a>
-			<Mail class="button text-center text-center sm-max-100" />
+			<a href="/subscribe" {...btn}>subscribe to mailing list</a>
+			<Mail {...btn} />
 		</nav>
 	</div>
 	<div class="h1em sm-max-none" />
@@ -101,12 +105,11 @@
 				{/each}
 			</div>
 			<p>
-				Y'olde RSS feed is 
+				RSS feed is 
 				<a {...ext} href="/rss.xml">available</a>.
 				Some decent RSS readers are 
-				<a {...ext} href="https://netnewswire.com">NetNewsWire</a> 
-				and maybe latest
-				<a {...ext} href="https://www.google.com/chrome/canary">Chrome (Canary)</a>.
+				<a {...ext} href="https://netnewswire.com">NetNewsWire</a>,
+				<a {...ext} href="https://www.inoreader.com">Inoreader</a>.
 		</div>
 		<div class="w0em sm-max-none" />
 		<div class="{block}">
