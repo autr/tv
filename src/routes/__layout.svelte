@@ -52,7 +52,7 @@
 <svelte:head>
 	<meta name="author" content="Gilbert Sinnott">
 	<meta name="description" content="Gilbert Sinnott">
-	<meta name="theme-color" content="#F986D2" />
+	<meta name="theme-color" content="hsl( 200, 10%, 10% )" />
 </svelte:head>
 
 <main bind:this={el} class="sassis f1 w100vw h100vh orientation-{orientation}" class:dark={$dark}>
