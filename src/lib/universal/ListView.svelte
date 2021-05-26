@@ -12,23 +12,41 @@
 	export let id
 
 	let browser = utils.browser
+	let count = max
+	let el
 
 	let class_ = ""
 	export { class_ as class }
 	let style_ = ""
 	export { style_ as style }
+	let inited = false
 
 	let timestamp = new Date()
 	function tick( ) {
 
 		if (browser) {
-			// console.log('!')
 			const bottom = $scroll.itemsTop > $scroll.itemsHeight - (window.innerHeight * 1.5)
 			if ( bottom ) more()
-			if (!finished) window.requestAnimationFrame(tick)
+			if (!finished) {
+				window.requestAnimationFrame(tick)
+			} else {
+				inited = false
+			}
 		}
 
 	}
+
+	function reset( data_ ) {
+		if (!inited) {
+			finished = false
+			inited = true
+			tick()
+		}
+	}
+
+	$: reset( data )
+
+	console.log('[listview] 🚁  initialised')
 
 	function more() {
 		const t = new Date()
@@ -68,7 +86,7 @@
 
 	$: changed( data )
 
-	if (browser) tick()
+	// if (browser) tick()
 	let unsubscribe
 
 	// onMount( async e => {})
@@ -76,8 +94,6 @@
 	$: finished = count >= data.length
 
 
-	let count = max
-	let el
 
 	$: bounds = el?.getBoundingClientRect() || {}
 </script>

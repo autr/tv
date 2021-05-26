@@ -57,7 +57,6 @@
 		if (!player) return
 
 		const res = await player.destroy()
-		console.log('DESTROY!', res)
 	})
 
 

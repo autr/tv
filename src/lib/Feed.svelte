@@ -9,6 +9,7 @@
 	import Title from '$lib/Title.svelte'
 	import PostItem from '$lib/PostItem.svelte'
 	import { goto } from '$app/navigation'
+	import { scroll } from '$lib/universal/stores.js'
 
 
 	export let data
@@ -26,6 +27,9 @@
 	}
 
 	$: filter( $page.params.year )
+
+
+	console.log('[feed] 🌐  initialised')
 
 
 
@@ -70,6 +74,12 @@
 
 	}
 
+	const size = 45
+
+	$: widthheight = `width:${size}px;height:${size}px;`
+	$: rotate = `transform-origin: 50% 50%; transform: rotate(90deg);`
+
+	$: showBackToTop = utils.browser ? $scroll.itemsTop > window.innerHeight : false
 </script>
 
 
@@ -108,6 +118,24 @@
 		</a>
 	</div>
 </nav>
+
+<div 
+	class:none={!showBackToTop}
+	class="sticky t0 l0 h0px w100vw row-flex-end-center z-index99 pointer">
+	<a
+		href="#top"
+		class="b1-solid flex row-center-center rel t1 r0"
+		style={widthheight + rotate + 'margin-top:1px'}>
+		<All
+			type="arrow"
+			color={ 'var(--color)'}
+			misc={{rotate: 1}}
+			stroke={1}
+			width={size * 0.6}
+			height={size * 0.6} />
+	</a>
+</div>
+
 <slot />
 <ListView
 	id="feed"
@@ -115,6 +143,8 @@
 	data={ posts.data }
 	{keys}
 	component={PostItem}>
+
+
 	<button 
 		slot="more" 
 		class="filled">more</button>
