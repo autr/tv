@@ -71,24 +71,6 @@
   --code-keyboard: hsl( 260, 95%, 70% );
   --code-regex: hsl( 300, 95%, 70% ); }
 
-@font-face {
-  font-family: 'b-a-s-i-s-g-r-o-s';
-  font-weight: bold;
-  font-style: italic, oblique, normal;
-  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
-
-@font-face {
-  font-family: 'b-a-s-i-s-g-r-o-s';
-  font-weight: normal;
-  font-style: italic, oblique, normal;
-  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
-
-@font-face {
-  font-family: 'b-a-s-i-s-g-r-o-s';
-  font-weight: thin;
-  font-style: italic, oblique, normal;
-  src: url("/fonts/b-a-s-i-s-g-r-o-s_2.ttf"); }
-
 /* core sassis */
 html {
   font-size: var(--font-size); }
@@ -1116,6 +1098,23 @@ a.error, button.error, .button.error {
 @media only screen and (min-width: 768px) {
   .md-container {
     max-width: var(--container); } }
+@font-face {
+  font-family: 'b-a-s-i-s-g-r-o-s';
+  font-weight: bold;
+  font-style: italic, oblique, normal;
+  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
+
+@font-face {
+  font-family: 'b-a-s-i-s-g-r-o-s';
+  font-weight: normal;
+  font-style: italic, oblique, normal;
+  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
+
+@font-face {
+  font-family: 'b-a-s-i-s-g-r-o-s';
+  font-weight: thin;
+  font-style: italic, oblique, normal;
+  src: url("/fonts/b-a-s-i-s-g-r-o-s_2.ttf"); }
 
 @keyframes scroll {
   from {
@@ -1144,16 +1143,18 @@ html, body {
       min-width: 5.5em; }
     html #works-nav label, body #works-nav label {
       min-width: 50%; }
-    html .post-media, body .post-media {
+    html .post-media, html .homepage-media, html .about-media, html .feed-item-media, body .post-media, body .homepage-media, body .about-media, body .feed-item-media {
       margin-left: -1em;
       margin-right: -1em; } }
   @media only screen and (min-width: 576px) {
     html #nowt, body #nowt {
       margin-bottom: -1em; } }
   @media only screen and (min-width: 768px) {
+    html #feed .post-orientation-portrait .post-text, html #feed .post-orientation-portrait .media, body #feed .post-orientation-portrait .post-text, body #feed .post-orientation-portrait .media {
+      margin: 0em 12em; }
     html #subscribe-page, body #subscribe-page {
       margin: 0em 19em; } }
-  html h1, html h2, html h4, body h1, body h2, body h4 {
+  html h1, html h2, html h3, html h4, html h5, html h6, body h1, body h2, body h3, body h4, body h5, body h6 {
     font-family: 'b-a-s-i-s-g-r-o-s';
     font-weight: thin; }
   html .dot, body .dot {
@@ -1173,6 +1174,9 @@ html, body {
   html .br, body .br {
     border-right-width: var(--borders);
     border-right-style: solid; }
+  html .bl, body .bl {
+    border-left-width: var(--borders);
+    border-left-style: solid; }
   html #autr svg path, body #autr svg path {
     stroke-width: 1px;
     fill: transparent;
@@ -1180,6 +1184,46 @@ html, body {
     display: none; }
     html #autr svg path:nth-child(3), body #autr svg path:nth-child(3) {
       display: block; }
+  html .ico-1 #autr svg path, body .ico-1 #autr svg path {
+    display: none; }
+  html .ico-1 #autr svg path:nth-child(1), body .ico-1 #autr svg path:nth-child(1) {
+    display: block; }
+  html .ico-2 #autr svg path, body .ico-2 #autr svg path {
+    display: none; }
+  html .ico-2 #autr svg path:nth-child(2), body .ico-2 #autr svg path:nth-child(2) {
+    display: block; }
+  html .ico-3 #autr svg path, body .ico-3 #autr svg path {
+    display: none; }
+  html .ico-3 #autr svg path:nth-child(3), body .ico-3 #autr svg path:nth-child(3) {
+    display: block; }
+  html .ico-4 #autr svg path, body .ico-4 #autr svg path {
+    display: none; }
+  html .ico-4 #autr svg path:nth-child(4), body .ico-4 #autr svg path:nth-child(4) {
+    display: block; }
+  html .ico-5 #autr svg path, body .ico-5 #autr svg path {
+    display: none; }
+  html .ico-5 #autr svg path:nth-child(5), body .ico-5 #autr svg path:nth-child(5) {
+    display: block; }
+  html .ico-6 #autr svg path, body .ico-6 #autr svg path {
+    display: none; }
+  html .ico-6 #autr svg path:nth-child(6), body .ico-6 #autr svg path:nth-child(6) {
+    display: block; }
+  html .ico-7 #autr svg path, body .ico-7 #autr svg path {
+    display: none; }
+  html .ico-7 #autr svg path:nth-child(7), body .ico-7 #autr svg path:nth-child(7) {
+    display: block; }
+  html .ico-8 #autr svg path, body .ico-8 #autr svg path {
+    display: none; }
+  html .ico-8 #autr svg path:nth-child(8), body .ico-8 #autr svg path:nth-child(8) {
+    display: block; }
+  html .ico-9 #autr svg path, body .ico-9 #autr svg path {
+    display: none; }
+  html .ico-9 #autr svg path:nth-child(9), body .ico-9 #autr svg path:nth-child(9) {
+    display: block; }
+  html .ico-10 #autr svg path, body .ico-10 #autr svg path {
+    display: none; }
+  html .ico-10 #autr svg path:nth-child(10), body .ico-10 #autr svg path:nth-child(10) {
+    display: block; }
   html .media, body .media {
     line-height: 0px !important; }
     html .media *, html .media img, body .media *, body .media img {

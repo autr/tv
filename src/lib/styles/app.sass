@@ -1,8 +1,12 @@
-// @import './../../../../sassis/dist/all'
 @import './_theme'
-// @import './../../../static/fonts'
 @import './../../../../sassis/src/sassis'
+ 
 
++sassis
++shorthand
++layout
+
+/* purgecss start ignore */
 
 
 @font-face 
@@ -23,12 +27,6 @@
 	font-weight: thin
 	font-style: italic, oblique, normal
 	src: url('/fonts/b-a-s-i-s-g-r-o-s_2.ttf') 
- 
-
-+sassis
-+shorthand
-+layout
-
 
 $bg-a: var(--bg)
 $bg-b: var(--bg-pop)
@@ -39,21 +37,17 @@ $bg-s: 1px
 	to
 		background-position: 0px ($bg-s * 100)
 html, body 
-	.sassis, .bg
-		// animation: scroll 10s linear infinite
-		// background-image: repeating-linear-gradient( 0deg, $bg-a 0px, $bg-a $bg-s, $bg-b $bg-s, $bg-b ($bg-s * 2) )
-
-	letter-spacing: 0.05em
-	overflow: hidden
 
 	// --media-sm: 576px;
 	// --media-md: 768px;
 	// --media-lg: 922px;
 	// --media-elg: 1200px;
+	// .sassis, .bg
+		// animation: scroll 10s linear infinite
+		// background-image: repeating-linear-gradient( 0deg, $bg-a 0px, $bg-a $bg-s, $bg-b $bg-s, $bg-b ($bg-s * 2) )
 
-	.activ8
-		&:active
-			// box-shadow: inset 0px 0px 0px 1px var(--color)
+	letter-spacing: 0.05em
+	overflow: hidden
 
 	*
 		-webkit-tap-highlight-color: transparent
@@ -96,15 +90,12 @@ html, body
 
 	.dot 
 		$sz: 0.5em
-		// +bg( var(--color) )
 		border: 1px solid var(--color)
 		+mr(0.5em)
 		+mb(0.05em)
 		+wh( $sz, $sz )
 		+radius( $sz )
 		+inline-block
-
-	// .bb, .bt, .br, .bl
 
 	.bb
 		border-bottom-width: var(--borders)
@@ -123,7 +114,6 @@ html, body
 	#autr
 		svg
 			path
-				// stroke: var(--color)
 				stroke-width: 1px
 				fill: transparent
 				fill: var(--color)
@@ -149,9 +139,5 @@ html, body
 				height: 100%
 				z-index: 77
 				position: absolute
-	// .logo
-	//     &.light
-	//         mix-blend-mode: multiply
-	//     &.dark
-	//         filter: invert(1)
-	//         mix-blend-mode: screen
+
+/* purgecss end ignore */

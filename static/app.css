@@ -71,24 +71,6 @@
   --code-keyboard: hsl( 260, 95%, 70% );
   --code-regex: hsl( 300, 95%, 70% ); }
 
-@font-face {
-  font-family: 'b-a-s-i-s-g-r-o-s';
-  font-weight: bold;
-  font-style: italic, oblique, normal;
-  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
-
-@font-face {
-  font-family: 'b-a-s-i-s-g-r-o-s';
-  font-weight: normal;
-  font-style: italic, oblique, normal;
-  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
-
-@font-face {
-  font-family: 'b-a-s-i-s-g-r-o-s';
-  font-weight: thin;
-  font-style: italic, oblique, normal;
-  src: url("/fonts/b-a-s-i-s-g-r-o-s_2.ttf"); }
-
 /* core sassis */
 html {
   font-size: var(--font-size); }
@@ -56279,6 +56261,25 @@ a.color-e, select.color-e, button.color-e, .button.color-e {
     flex-basis: 100%;
     max-width: 100%; } }
 
+/* purgecss start ignore */
+@font-face {
+  font-family: 'b-a-s-i-s-g-r-o-s';
+  font-weight: bold;
+  font-style: italic, oblique, normal;
+  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
+
+@font-face {
+  font-family: 'b-a-s-i-s-g-r-o-s';
+  font-weight: normal;
+  font-style: italic, oblique, normal;
+  src: url("/fonts/b-a-s-i-s-g-r-o-s_3.ttf"); }
+
+@font-face {
+  font-family: 'b-a-s-i-s-g-r-o-s';
+  font-weight: thin;
+  font-style: italic, oblique, normal;
+  src: url("/fonts/b-a-s-i-s-g-r-o-s_2.ttf"); }
+
 @keyframes scroll {
   from {
     background-position: 0px 0px; }
@@ -56397,3 +56398,5 @@ html, body {
       height: 100%;
       z-index: 77;
       position: absolute; }
+
+/* purgecss end ignore */
