@@ -22,6 +22,7 @@ const filterPost = post => {
 }
 const feed = async fetch => {
 	let data = await get( { posts: '/posts.json' }, fetch )
+
 	return data.posts.filter( p => {
 		return p.status == 'published'
 	}).sort( (a,b) => {

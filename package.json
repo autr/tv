@@ -23,13 +23,16 @@
     "dayjs": "^1.10.4",
     "ezipe": "link:../ezipe",
     "fetcheriser": "^1.0.7",
+    "png-to-ico": "^2.1.2",
     "purgecss": "^4.0.3",
     "svelte": "^3.38.2",
     "vite": "^2.3.3"
   },
   "type": "module",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "file-size": "^1.0.0",
+    "svelte-preprocess": "^4.7.3",
     "vite-aliases": "^0.6.3"
   }
 }

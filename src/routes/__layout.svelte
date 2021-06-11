@@ -8,6 +8,8 @@
 
 
 <script>
+
+	// import { ENV } from '$lib/../../eze.config.js'
 	import { browser, dev } from '$app/env'
 	import Logo from '$lib/Logo.svelte'
 	import { eze, burger, pkg, info, autoplay, controls } from '$lib/universal/stores.js'
@@ -30,6 +32,8 @@
 	export let data
 	info.set({ ...data.info[0] })
 	pkg.set({ ...data.pkg })
+
+
 	eze.set(  {
 		api: 'http://mac.local:3000/api/autr/',
 		editor: 'http://localhost:5000/autr/',

@@ -28,7 +28,7 @@
 	   return parts.join(separator).replace(replace, separator)
 	}
 
-	const DEBUG = false
+	const DEBUG = true
 
 
 	if (DEBUG) console.log(`[PostItem] ✨📱✨  using device: ${device}`)
@@ -66,11 +66,11 @@
 
 		if (DEBUG) console.log('[media] syncing file', file_?.basename)
 
-		if (file?.basename && file?.location) {
+		if (file?.item?.basename && file?.location) {
 
 			if (!root) console.error('[media] no root is set!')
 
-			const basename = file.basename
+			const basename = file.item.basename
 			const idx = basename.lastIndexOf('.')
 			const name = basename.slice( 0, idx )
 			const ext = basename.slice( idx )
@@ -113,7 +113,7 @@
 			if ($eze.api && $eze.api != '' && $eze.copy) {
 
 				const project = join( [$eze.project, $eze.assets, root]) // root 
-				const ezezeze = join( ['/media/', file.location.name] ) // root
+				const ezezeze = join( ['/media/', file.location] ) // root
 
 				const formatted = name + fmt + ext // filename
 				const rawified = name + ext // filename
@@ -148,15 +148,15 @@
 	}
 
 	$: sync( file )
-	$: title = file.title
-	$: alt = ((file?.title || autohide || file?.basename) || '')
+	$: title = file?.item?.title
+	$: alt = ((file?.item?.title || autohide || file?.item?.basename) || '')
 
 	let width = null, height = null, ratio = null
 
 	function colors_( file_ ) {
-		if (!file?.vibrant) return {}
+		if (!file?.item?.vibrant) return {}
 		let o = {}
-		for (const [key, value] of Object.entries( file.vibrant )) {
+		for (const [key, value] of Object.entries( file.item.vibrant )) {
 			o[key.toLowerCase()] = `rgb(${value.rgb.join(',')})`
 		}
 		return o
@@ -223,12 +223,12 @@
 			const center = Math.abs( ( rect.y + (rect.height / 2) ) - (window.innerHeight / 2) )
 
 			if ( autohide == ID && center != CENTER ) {
-				$centroid = { center, id: autohide, title: file.title }
+				$centroid = { center, id: autohide, title }
 			}
 
 			if ( center < CENTER && ID != autohide ) {
 				console.log(`[PostItem] ✨☯️✨  switching to new centroid "${autohide}" with size: ${width}/${height} (${ratio}), from position ${center} ${CENTER}`, {vidSrc,posterSrc})
-				$centroid = { center, id: autohide, title: file.title }
+				$centroid = { center, id: autohide, title }
 			}
 
 			if (desktop) paused = $centroid.id != autohide || !$autoplay
@@ -247,7 +247,7 @@
 	$: autoplay_final = $autoplay && $centroid.id == autohide
 
 	$: identifiers = {
-		mime: 'media-mime-' + utils.slugify( (file?.mime || '').split('/')[0] ),
+		mime: 'media-mime-' + utils.slugify( (file?.item?.mime || '').split('/')[0] ),
 		width: 'media-width-' + width,
 		height: 'media-height-' + height,
 		ratio: 'media-ratio-' + ratio,

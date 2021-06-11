@@ -15,7 +15,7 @@
 	export let date 
 	export let status
 
-	$: video = (media || []).find( m => m.mime.indexOf('video') != -1) ? true : false
+	$: video = (media || []).find( m => m.item.mime.indexOf('video') != -1) ? true : false
 
 	$: icons = {
 		width: 35,

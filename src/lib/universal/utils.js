@@ -21,7 +21,7 @@ const posts = (items, y) => {
 }
 
 const isFileType = ( str, file ) => {
-	return file.mime.indexOf(str) != -1
+	return (file?.item?.mime || '').indexOf(str) != -1
 }
 const slugify = text => text.toString().toLowerCase()
 	.replaceAll(' ', '-')           // Replace spaces with -
@@ -32,12 +32,12 @@ const extractDimensions = (file) => {
 	let width, height, ratio
 	try {
 		if (isFileType('image', file)) {
-			const s = file.exif[0].ImageSize.split('x')
+			const s = file.item.exif[0].ImageSize.split('x')
 			width = parseInt( s[0] )
 			height = parseInt( s[1] )
 		}
 		if (isFileType('video', file)) {
-			file.ffprobe.streams.forEach( stream => {
+			file.item.ffprobe.streams.forEach( stream => {
 				if (stream?.width != undefined) width = stream.width
 				if (stream?.height != undefined) height = stream.height
 			})
@@ -61,6 +61,8 @@ const isElectron = e => {
 
 const device = () => {
 
+	// returns 'mobile' tablet' or 'desktop'
+
 	try {
 	    const ua = navigator.userAgent;
 	    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
@@ -70,7 +72,7 @@ const device = () => {
 	        return 'mobile';
 	    }
 	} catch(err) {}
-    return 'desktop';
+    return 'desktop'
 }
 
 

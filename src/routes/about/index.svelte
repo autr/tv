@@ -97,7 +97,7 @@
 								<span 
 									class="dot" />
 								<span class="bb">
-									{link.item.text.trim()}
+									{(link?.item?.text || '').trim()}
 								</span>
 							</a>
 						{/each}
