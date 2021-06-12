@@ -330,6 +330,222 @@ code[class*="language-"], pre[class*="language-"] {
   cursor: help; }
 
 /* backgrounds w. pop and sink */
+.clamp1 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 1;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp2 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 2;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp3 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 3;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp4 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 4;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp5 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 5;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp6 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 6;
+  line-clamp: 6;
+  -webkit-line-clamp: 6;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp7 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 7;
+  line-clamp: 7;
+  -webkit-line-clamp: 7;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp8 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 8;
+  line-clamp: 8;
+  -webkit-line-clamp: 8;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp9 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 9;
+  line-clamp: 9;
+  -webkit-line-clamp: 9;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp10 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 10;
+  line-clamp: 10;
+  -webkit-line-clamp: 10;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp11 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 11;
+  line-clamp: 11;
+  -webkit-line-clamp: 11;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp12 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 12;
+  line-clamp: 12;
+  -webkit-line-clamp: 12;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp13 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 13;
+  line-clamp: 13;
+  -webkit-line-clamp: 13;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp14 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 14;
+  line-clamp: 14;
+  -webkit-line-clamp: 14;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp15 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 15;
+  line-clamp: 15;
+  -webkit-line-clamp: 15;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp16 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 16;
+  line-clamp: 16;
+  -webkit-line-clamp: 16;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp17 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 17;
+  line-clamp: 17;
+  -webkit-line-clamp: 17;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp18 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 18;
+  line-clamp: 18;
+  -webkit-line-clamp: 18;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp19 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 19;
+  line-clamp: 19;
+  -webkit-line-clamp: 19;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp20 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 20;
+  line-clamp: 20;
+  -webkit-line-clamp: 20;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp21 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 21;
+  line-clamp: 21;
+  -webkit-line-clamp: 21;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp22 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 22;
+  line-clamp: 22;
+  -webkit-line-clamp: 22;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp23 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 23;
+  line-clamp: 23;
+  -webkit-line-clamp: 23;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
+.clamp24 {
+  display: box;
+  display: -webkit-box;
+  max-lines: 24;
+  line-clamp: 24;
+  -webkit-line-clamp: 24;
+  box-orient: vertical;
+  -webkit-box-orient: vertical; }
+
 .rotate0 {
   transform: rotateZ(0deg); }
 

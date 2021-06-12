@@ -28,8 +28,7 @@
 	   return parts.join(separator).replace(replace, separator)
 	}
 
-	const DEBUG = true
-
+	const DEBUG = false
 
 	if (DEBUG) console.log(`[PostItem] ✨📱✨  using device: ${device}`)
 
