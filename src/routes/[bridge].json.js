@@ -10,5 +10,5 @@ export const get = async ( { host, method, path, query, params, locals } ) => {
 	return {
 		status: res.status,
 		body: json
-	};
+	}
 }
