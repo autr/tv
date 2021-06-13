@@ -1,15 +1,13 @@
 <script>
 
-	import { info } from '$lib/universal/stores.js'
-	import { burger } from '$lib/universal/stores.js'
-	import { dark } from '$lib/rad-and-cool-icons/lib/stores.js'
 	import { page } from '$app/stores'
-	import Media from '$lib/universal/Media.svelte'
-	import Close from '$lib/Close.svelte'
-	import Logo from '$lib/Logo.svelte'
-	import { All } from '$lib/rad-and-cool-icons/lib'
 	import { goto } from '$app/navigation'
 
+	import { DARKMODE, BURGERMODE, INFOS } from '$lib/_stores.js'
+	import RadCool from 'rad-and-cool-icons'
+
+	import Close from '$lib/Close.svelte'
+	import Logo from '$lib/Logo.svelte'
 
 	export let overlay = false
 	
@@ -41,7 +39,7 @@
 	$: widthheight = `width:${size}px;height:${size}px;`
 
 	function onClick() {
-		$burger = false
+		$BURGERMODE = false
 	}
 
 	$: button = {
@@ -66,15 +64,14 @@
 
 <!------------------------ MOBILE ------------------------>
 
-
 <div 
 	id="mobile-header" 
 	class="w100pc t0 l0 sm-min-none h5-2em z-index80"
-	class:abs={$burger}>
+	class:abs={$BURGERMODE}>
 	<div 
 		class="w100vw plr1 pt1 grow">
 		<div 
-			class:bb={!$burger}
+			class:bb={!$BURGERMODE}
 			class="flex row-space-between-center pb1">
 			<a 
 				class={mobile_cols + 'activ8 row-start-center unclickable'}
@@ -85,7 +82,8 @@
 				<!-- <h2 class="f1 maxw4em">Gilbert S</h2> -->
 			</a>
 			<div class={mobile_cols + 'row-flex-end-center grow cml1'}>
-				<All
+				<RadCool
+					bind:dark={$DARKMODE}
 					class="activ8 pointer"
 					type="light-dark"
 					id="mobile"
@@ -101,16 +99,16 @@
 
 <Close 
 	class="activ8 fixed sm-min-none r1 t1-3 z-index81" 
-	bind:state={$burger} 
+	bind:state={$BURGERMODE} 
 	style={widthheight + 'margin-top:-1px'} 
 	invert={false}
-	on:click={e => $burger = !$burger} />
+	on:click={e => $BURGERMODE = !$BURGERMODE} />
 
 
 <nav 
 	class="bg fill fixed flex column-stretch-stretch pt5-4 plr1 pb1 z-index78 rel"
 	id="mobile-nav" 
-	class:none={!$burger}
+	class:none={!$BURGERMODE}
 	style="top:-1px">
 
 	<div class="grow flex column-stretch-stretch">
@@ -123,7 +121,7 @@
 				style="margin-top:-1px">
 				{#if url == '#top'}
 
-					<All
+					<RadCool
 						style={rotate}
 						type="arrow"
 						color={ 'var(--color)'}
@@ -154,7 +152,7 @@
 		<div class="overflow-hidden" style="height:62px">
 			<Logo />
 		</div>
-		<h2 class="f1">{$info.subtitle}</h2>
+		<h2 class="f1">{$INFOS.subtitle}</h2>
 	</a>
 
 	{#if !overlay}
@@ -174,7 +172,8 @@
 				</a>
 			{/each}
 			<a on:click={onClick} class="button text-center sm-max-none" href={`/about`}>about</a>
-			<All
+			<RadCool
+				bind:state={$DARKMODE}
 				type="light-dark"
 				id="desktop"
 				class="pointer activ8"

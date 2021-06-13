@@ -1,7 +1,7 @@
 <script>
 
-	import { browser, dev } from '$app/env'
-	import { ListSignup } from '$lib/ezelte/lib'
+	import { dev } from '$app/env'
+	import { ListSignup } from 'ezelte'
 
 	const DEBUG = false
 	

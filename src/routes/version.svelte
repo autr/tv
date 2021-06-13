@@ -1,14 +1,13 @@
 
 
 <script>
-	import Title from '$lib/Title.svelte'
-	import { pkg } from '$lib/universal/stores.js'
+	import { PJG } from '$lib/_stores.js'
 	import dayjs from 'dayjs'
 
 	const viz = {
-		'build version': $pkg.version,
+		'build version': $PJG.version,
 		'build date': dayjs( new Date() ).format('D MMM, YYYY, dd'),
-		'node version': $pkg?.engines?.node
+		'node version': $PJG?.engines?.node
 	}
 </script>
 

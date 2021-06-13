@@ -7,7 +7,7 @@
 
 
 <script>
-	import Feed from '$lib/Feed.svelte'
+	import { Feed } from '$lib'
 	export let data
 </script>
 <Feed {data} />

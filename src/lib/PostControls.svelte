@@ -1,8 +1,6 @@
 <script>
-	import { autoplay, audio, centroid } from '$lib/universal/stores.js'
-	import Timestamp from '$lib/universal/Timestamp.svelte'
-	import utils from '$lib/universal/utils.js'
-	import { All } from '$lib/rad-and-cool-icons/lib'
+	import { AUTOPLAYING, MUTED, CENTROID } from '$lib/_stores.js'
+	import RadCool from 'rad-and-cool-icons'
 	
 	export let id
 	export let text
@@ -24,23 +22,23 @@
 		color: 'var(--color)'
 	}
 
-	$: playing = $centroid?.id && id ? $centroid.id.indexOf(id) != -1 : false
+	$: playing = $CENTROID?.id && id ? $CENTROID.id.indexOf(id) != -1 : false
 </script>
 <nav class="m1 flex row-center-center">
 	{#if video}
-		<span on:click={e => $autoplay = !$autoplay}>
-			<All 
+		<span on:click={e => $AUTOPLAYING = !$AUTOPLAYING}>
+			<RadCool 
 				type="play-pause"
-				state={ $autoplay }
+				state={ $AUTOPLAYING }
 				{...icons}
 				width={icons.width - 12}
 				height={icons.height - 12}
 				 />
 		</span>
 		<span class="w1em" />
-		<span on:click={e => $audio = !$audio}>
-			<All 
-				state={ $audio  }
+		<span on:click={e => $MUTED = !$MUTED}>
+			<RadCool 
+				state={ $MUTED  }
 				type="audio"
 				{...icons} />
 		</span>

@@ -1,7 +1,6 @@
 <script>
-    import Title from '$lib/Title.svelte'
+    
     import TBA from '$lib/TBA.svelte'
-
     export let error
     export let data
 

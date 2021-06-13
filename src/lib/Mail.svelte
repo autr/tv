@@ -21,7 +21,6 @@
 
 </script>
 
-
 <a 
 	on:mouseover={ switcheroo }
 	on:touchstart={ switcheroo }

@@ -7,15 +7,8 @@
 </script>
 <script>
 	import { page } from '$app/stores'
-	import PostItem from '$lib/PostItem.svelte'
-	import PostMedia from '$lib/PostMedia.svelte'
-	import PostText from '$lib/PostText.svelte'
-	import utils from '$lib/universal/utils.js'
-	import PostControls from '$lib/PostControls.svelte'
-	import Close from '$lib/Close.svelte'
-	import Timestamp from '$lib/universal/Timestamp.svelte'
-	import { All } from '$lib/rad-and-cool-icons/lib'
-	import Header from '$lib/Header.svelte'
+	import { PostMedia, PostText } from '$lib'
+	import { utils } from 'ezekit'
 	export let data
 
 	const size = 20

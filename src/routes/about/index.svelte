@@ -6,14 +6,9 @@
 </script>
 
 <script>
-
-	import utils from '$lib/universal/utils.js'
-	import LayoutCentered from '$lib/universal/LayoutCentered.svelte'
-	import { dark } from '$lib/rad-and-cool-icons/lib/stores.js'
 	import Color from 'color'
-	import Title from '$lib/Title.svelte'
-	import Mail from '$lib/Mail.svelte'
-	import Media from '$lib/universal/Media.svelte'
+	import { Title, Mail } from '$lib'
+	import { Media, LayoutCentered, utils } from 'ezekit'
 	export let data
 
 	$: mobile = utils.device() != 'desktop'
@@ -35,8 +30,6 @@
 
 	function colourise( c ) {
 		let col = Color( c )
-		// if (!$dark) col = col.darken(0.5)
-		// if (!$dark) return `background-color:${col}`
 		return `border-color:${col}`
 	}
 

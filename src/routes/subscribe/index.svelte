@@ -8,10 +8,8 @@
 
 <script>
 	import { onMount } from 'svelte'
-	import ListSignup from '$lib/ListSignup.svelte'
-	import Media from '$lib/universal/Media.svelte'
-	import LayoutCentered from '$lib/universal/LayoutCentered.svelte'
-	import Title from '$lib/Title.svelte'
+	import { Media, LayoutCentered } from 'ezekit'
+	import { Title } from '$lib'
 
 	let vars = { artworks: true }
 

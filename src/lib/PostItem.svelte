@@ -1,7 +1,6 @@
 <script>
 
-	import PostMedia from '$lib/PostMedia.svelte'
-	import PostText from '$lib/PostText.svelte'
+	import { PostMedia, PostText } from '$lib'
 
 	export let id 
 	export let text

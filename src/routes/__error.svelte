@@ -9,9 +9,8 @@
 </script>
 
 <script>
-    import LayoutCentered from '$lib/universal/LayoutCentered.svelte'
-    import Title from '$lib/Title.svelte'
-    import TBA from '$lib/TBA.svelte'
+    import { LayoutCentered } from 'ezekit'
+    import { Title } from '$lib'
 
     export let error
 

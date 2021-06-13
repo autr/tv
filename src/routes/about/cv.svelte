@@ -1,4 +1,4 @@
 <script>
-	import Nowt from '$lib/Nowt.svelte'
+	import { Nowt } from '$lib'
 </script>
 <Nowt />

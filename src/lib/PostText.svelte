@@ -1,11 +1,8 @@
 <script>
-	import { autoplay, audio, centroid } from '$lib/universal/stores.js'
-	import Timestamp from '$lib/universal/Timestamp.svelte'
+	import { Timestamp, utils } from 'ezekit'
 	import PostControls from '$lib/PostControls.svelte'
-	import utils from '$lib/universal/utils.js'
-	import { All } from '$lib/rad-and-cool-icons/lib'
 	import { dev } from '$app/env'
-	import { eze } from '$lib/universal/stores.js'
+	import { EZE } from '$lib/_stores.js'
 	
 	export let id
 	export let text
@@ -36,5 +33,5 @@
 
 
 {#if dev}
-	<a class="button mtb1 " href={`${$eze.editor}items/posts/${id}`}>EZE</a>
+	<a class="button mtb1 " href={`${$EZE.editor}items/posts/${id}`}>EZE</a>
 {/if}

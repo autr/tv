@@ -3,8 +3,8 @@
 	import { browser, dev } from '$app/env'
 	import { base, assets } from '$app/paths';
 
-	import utils from '$lib/universal/utils.js'
-	import Media from '$lib/universal/Media.svelte'
+	import { Media, utils } from 'ezekit'
+	import { CENTROID, SCROLLER, EZE } from '$lib/_stores.js'
 
 	export let id
 	export let text
@@ -51,6 +51,9 @@
 		{...common} 
 		id={`${id}-media-embed`}>
 		<Media 
+			bind:scroller={$SCROLLER}
+			bind:centroid={$CENTROID}
+			bind:eze={$EZE}
 			{root}
 			{format}
 			file={iframe}
@@ -66,6 +69,9 @@
 		id={`${id}-media-${idx}`}>
 		<a {href} class="fill unclickable activ8 z-index22"></a>
 		<Media 
+			bind:scroller={$SCROLLER}
+			bind:centroid={$CENTROID}
+			bind:eze={$EZE}
 			{root}
 			{format}
 			{file} 

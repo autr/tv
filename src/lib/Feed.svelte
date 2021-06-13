@@ -1,19 +1,13 @@
 <script>
 	import { page } from '$app/stores'
 	import { onMount, onDestroy } from 'svelte'
-	import { All } from '$lib/rad-and-cool-icons/lib'
-	import utils from '$lib/universal/utils.js'
-
-	import ListView from '$lib/universal/ListView.svelte'
-	import ListSignup from '$lib/ListSignup.svelte'
-	import Title from '$lib/Title.svelte'
-	import PostItem from '$lib/PostItem.svelte'
+	import RadCool from 'rad-and-cool-icons'
+	import { ListView, utils} from 'ezekit'
 	import { goto } from '$app/navigation'
-	import { scroll } from '$lib/universal/stores.js'
-
+	import { SCROLLER, CENTROID, DARKMODE } from '$lib/_stores.js'
+	import PostItem from '$lib/PostItem.svelte'
 
 	export let data
-
 
 	const keys = ['id', 'created', 'updated', 'media', 'text', 'original', 'embed', 'date', 'status']
 
@@ -27,11 +21,6 @@
 	}
 
 	$: filter( $page.params.year )
-
-
-	console.log('[feed] 🌐  initialised')
-
-
 
 	let random
 
@@ -79,7 +68,7 @@
 	$: widthheight = `width:${size}px;height:${size}px;`
 	$: rotate = `transform-origin: 50% 50%; transform: rotate(90deg);`
 
-	$: showBackToTop = utils.browser ? $scroll.itemsTop > window.innerHeight : false
+	$: showBackToTop = utils.browser ? $SCROLLER.itemsTop > window.innerHeight : false
 </script>
 
 
@@ -126,7 +115,7 @@
 		href="#top"
 		class="b1-solid flex row-center-center rel t1 r0"
 		style={widthheight + rotate + 'margin-top:1px'}>
-		<All
+		<RadCool
 			type="arrow"
 			color={ 'var(--color)'}
 			misc={{rotate: 1}}
@@ -138,6 +127,8 @@
 
 <slot />
 <ListView
+	bind:scroller={$SCROLLER}
+	bind:centroid={$CENTROID}
 	id="feed"
 	class="feed mt1"
 	data={ posts.data }
@@ -149,7 +140,7 @@
 		slot="more" 
 		class="filled">more</button>
 	<a href="#top" slot="top" class="button flex row-center-center sm-max-100 mb0">
-		<All
+		<RadCool
 			type="arrow"
 			style="transform-origin: 50% 50%; transform: rotate(90deg);"
 			color={ 'var(--color)'}

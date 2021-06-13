@@ -6,8 +6,8 @@
 </script>
 
 <script>
-	import Timestamp from '$lib/universal/Timestamp.svelte'
-	import Title from '$lib/Title.svelte'
+	import { Timestamp } from 'ezekit'
+	import { Title } from '$lib'
 	import dayjs from 'dayjs'
 
 	export let data

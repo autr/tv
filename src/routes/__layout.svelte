@@ -9,43 +9,24 @@
 
 <script>
 
-	// import { ENV } from '$lib/../../eze.config.js'
 	import { browser, dev } from '$app/env'
-	import Logo from '$lib/Logo.svelte'
-	import { eze, burger, pkg, info, autoplay, controls } from '$lib/universal/stores.js'
-	import utils from '$lib/universal/utils.js'
-	import { dark } from '$lib/rad-and-cool-icons/lib/stores.js'
-	import { onMount } from 'svelte'
-	import Title from '$lib/Title.svelte'
-	import Header from '$lib/Header.svelte'
-	import Footer from '$lib/Footer.svelte'
-	import { All } from '$lib/rad-and-cool-icons/lib'
+	import { Header, Footer } from '$lib'
+	import { EZE, DARKMODE, BURGERMODE, PKG, INFOS, AUTOPLAYING, SCROLLER } from '$lib/_stores.js'
+	import { LayoutTopBar, ReDesign, utils } from 'ezekit'
 
-	import LayoutTwoCol from '$lib/universal/LayoutTwoCol.svelte'
-	import LayoutTopBar from '$lib/universal/LayoutTopBar.svelte'
-
-	import ReDesign from '$lib/universal/ReDesign.svelte'
-
-	let orientation = 'column'
-	let component = orientation == 'row' ? LayoutTwoCol : LayoutTopBar
 
 	export let data
-	info.set({ ...data.info[0] })
-	pkg.set({ ...data.pkg })
 
-
-	eze.set(  {
-		api: 'http://mac.local:3000/api/autr/',
+	INFOS.set({ ...data.info[0] })
+	PKG.set({ ...data.pkg })
+	AUTOPLAYING.set( true )
+	EZE.set(  {
+		api: 'http://localhost:3000/api/autr/',
 		editor: 'http://localhost:5000/autr/',
 		project: '/Users/gilbert/Code/tv/',
 		assets: '/static',
 		copy: dev || !browser
 	})
-	autoplay.set( true ) //utils.device() == 'desktop' )
-	// controls.set( utils.device() != 'desktop' )
-
-	let layout = 'two-col'
-	layout = 'top-bar'
 	
 	let el
 
@@ -59,20 +40,20 @@
 	<meta name="theme-color" content="hsl( 200, 10%, 10% )" />
 </svelte:head>
 
-<main bind:this={el} class="sassis f1 w100vw h100vh orientation-{orientation}" class:dark={$dark}>
-	<svelte:component this={component} >
+<main bind:this={el} class="sassis f1 w100vw h100vh" class:dark={$DARKMODE}>
+	<LayoutTopBar bind:scroller={$SCROLLER} >
 		<div id="top" slot="header" class="flex">
 
-			<Header {orientation} />
+			<Header />
 		</div>
 
 		<div slot="body" class="flex column-stretch-flex-start grow rel mlr1">
 			<slot />
 		</div>
 		<div slot="footer">
-			<Footer {orientation} />
+			<Footer />
 		</div>
-	</svelte:component>
+	</LayoutTopBar>
 </main>
 
 

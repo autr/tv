@@ -1,10 +1,11 @@
 <script>
-    import { pkg } from '$lib/universal/stores.js'
-    import { All } from '$lib/rad-and-cool-icons/lib'
+    import { page } from '$app/stores'
+    import { PKG } from '$lib/_stores.js'
+
     import Mail from '$lib/Mail.svelte'
     import ListSignup from '$lib/ListSignup.svelte'
     import Title from '$lib/Title.svelte'
-    import { page } from '$app/stores'
+
 
     export let social = {
         instagram: 'https://instagram.com/autr.tv',
@@ -55,7 +56,7 @@
     </div>
     <div class="{col} row-center-center sm-max-none">
         <span class="mr0-5" >Gilbert Sinnott { (new Date()).getFullYear() } </span>
-        <a class="{link}" href="/version">v{$pkg?.version || ''}</a>
+        <a class="{link}" href="/version">v{$PKG?.version || ''}</a>
     </div>
     <div class="{col} row-flex-end-center">
         <Mail style={stylee} class="{button}" />
