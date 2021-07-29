@@ -10,7 +10,7 @@
 <script>
 
 	import { browser, dev } from '$app/env'
-	import { Header, Footer } from '$lib'
+	import { HeaderNeu, Footer, Header } from '$lib'
 	import { EZE, DARKMODE, BURGERMODE, PKG, INFOS, AUTOPLAYING, SCROLLER } from '$lib/_stores.js'
 	import { LayoutTopBar, ReDesign, utils } from 'ezekit'
 
@@ -42,15 +42,13 @@
 
 <main bind:this={el} class="sassis f1 w100vw h100vh" class:dark={$DARKMODE}>
 	<LayoutTopBar bind:scroller={$SCROLLER} >
-		<div id="top" slot="header" class="flex">
-
+		<div id="top" slot="header" class="flex ">
 			<Header />
 		</div>
-
 		<div slot="body" class="flex column-stretch-flex-start grow rel mlr1">
 			<slot />
-		</div>
-		<div slot="footer">
+		</div>	
+		<div slot="footer" class="">
 			<Footer />
 		</div>
 	</LayoutTopBar>

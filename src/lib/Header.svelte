@@ -13,11 +13,12 @@
 	
 	const menu = {
 		'Feed': '/feed/',
-		'Projects': '/works',
-		// 'About': '/about',
-		// 'Code': '/code',
+		'Works': '/works',
+		'Shop': '/shop',
+		'Code': '/code',
+		'About': '/about',
+		'Mailing list': '/subscribe',
 		// 'Downloads': '/downloads',
-		// 'Shop': '/shop',
 		// 'Hello': 'hello'
 		// 'Links': '/links',
 	}
@@ -32,8 +33,7 @@
 	let lightdark = {
 		width: size,
 		height: size,
-		duration: 200,
-		stroke: 1
+		duration: 200
 	}
 
 	$: widthheight = `width:${size}px;height:${size}px;`
@@ -45,11 +45,12 @@
 	$: button = {
 		type: 'burger',
 		color: 'var(--color)',
-		stroke: 1,
 		width: size,
 		height: size,
 		duration: 200
 	}
+
+	$: stroke = 2
 
 	$: title = $page.path.substring(1).split('/')[0]
 
@@ -83,6 +84,7 @@
 			</a>
 			<div class={mobile_cols + 'row-flex-end-center grow cml1'}>
 				<RadCool
+					{stroke}
 					bind:dark={$DARKMODE}
 					class="activ8 pointer"
 					type="light-dark"
@@ -122,11 +124,11 @@
 				{#if url == '#top'}
 
 					<RadCool
+						{stroke}
 						style={rotate}
 						type="arrow"
 						color={ 'var(--color)'}
 						misc={{rotate: 1}}
-						stroke={1}
 						width={size * 0.8}
 						height={size * 0.8} />
 				{:else}
@@ -152,13 +154,13 @@
 		<div class="overflow-hidden" style="height:62px">
 			<Logo />
 		</div>
-		<h2 class="f1">{$INFOS.subtitle}</h2>
+		<!-- <h2 class="f1">{$INFOS.subtitle}</h2> -->
 	</a>
 
 	{#if !overlay}
 
 		<div 
-			class="flex wrap sm-max-none row-start-center cml1">
+			class="flex wrap sm-max-none row-start-center cml3">
 
 			<!-- menu links -->
 
@@ -171,8 +173,9 @@
 					{text}
 				</a>
 			{/each}
-			<a on:click={onClick} class="button text-center sm-max-none" href={`/about`}>about</a>
+			<!-- <a on:click={onClick} class="button text-center sm-max-none" href={`/subscribe`}>List</a> -->
 			<RadCool
+				{stroke}
 				bind:state={$DARKMODE}
 				type="light-dark"
 				id="desktop"

@@ -7,7 +7,7 @@
   "license": "GPL3",
   "scripts": {
     "backup": "cp ~/Code/eze/db/autr.json ./backups/autr-$(date +%s).json",
-    "dev": "node static/favicon.js && svelte-kit --port 8888 dev --host & npm run sass",
+    "dev": "node static/favicon.js && svelte-kit --port 9999 dev --host & npm run sass",
     "sass": "node-sass src/lib/styles/app.sass static/app.css -w ",
     "build": "svelte-kit build && node readme.js && cp -R static/* build && rm -rf docs && mv build docs && pnpm run postbuild && pnpm run test",
     "postbuild": "purgecss --css ./docs/app.css --content docs/**/*.html --output ./docs/app.css ",

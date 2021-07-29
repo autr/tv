@@ -18,13 +18,13 @@
 	$: icons = {
 		width: 35,
 		height: 35,
-		stroke: 1,
+		stroke: 2,
 		color: 'var(--color)'
 	}
 
 	$: playing = $CENTROID?.id && id ? $CENTROID.id.indexOf(id) != -1 : false
 </script>
-<nav class="m1 flex row-center-center">
+<nav class="post-controls">
 	{#if video}
 		<span on:click={e => $AUTOPLAYING = !$AUTOPLAYING}>
 			<RadCool 

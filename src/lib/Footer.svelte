@@ -35,7 +35,7 @@
         type: 'mail',
         width: 20,
         height: 20,
-        stroke: 1
+        stroke: 2
     }
 
     const stylee = 'margin-top:-1px'

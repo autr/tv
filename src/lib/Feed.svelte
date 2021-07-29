@@ -14,7 +14,7 @@
 	let posts = []
 
 	function filter( year ) {
-		posts = utils.posts( data, $page.params.year )
+		posts = utils.posts( data, $page.params.year, 'latest' )
 		const idx = parseInt( Math.random() * (posts.data.length - 1) )
 		const item = posts.data[ idx ]
 		random = `/feed/${utils.year(item?.date)}/${item?.id}`
@@ -24,13 +24,13 @@
 
 	let random
 
-	const href = year => `/feed/${year == 'all' ? '' : year}`
+	const href = year => `/feed/${year == 'latest' ? '' : year}`
 
 
 	let current = null
 	let checked = {}
 	function setChecked( years_, year_, current_ ) {
-		if (year_ == '') year_ = 'all'
+		if (year_ == '') year_ = 'latest'
 		for (let i = 0; i < years_.length; i++) {
 			const y = years_[i]
 			const url = year_ == y
@@ -43,7 +43,7 @@
 
 	$: rando ={
 		duration: 200,
-		stroke: 1,
+		stroke: 2,
 		width: 20,
 		height: 20,
 		color: 'var(--color)',
@@ -51,7 +51,7 @@
 	}
 
 	$: svg = {
-		'stroke-width': 1,
+		'stroke-width': 2,
 		stroke: 'var(--color)',
 		'vector-effect': 'non-scaling-stroke',
 		fill: 'transparent'
@@ -69,12 +69,16 @@
 	$: rotate = `transform-origin: 50% 50%; transform: rotate(90deg);`
 
 	$: showBackToTop = utils.browser ? $SCROLLER.itemsTop > window.innerHeight : false
+
+	let gridMode = false
 </script>
 
 
 <svelte:head>
 	<title>Autr | Feed | {$page?.params?.year || `Latest work, photos, videos`}</title>
 </svelte:head>
+
+<!-- <button on:click={e => (gridMode = !gridMode)}>TOGGLE MDOE {gridMode}</button> -->
 
 <nav id="feed-nav" class="flex  ptb0-5 row-stretch-center  bb  wrap">
 	<div class="flex row wrap rel grow w100pc">
@@ -130,7 +134,8 @@
 	bind:scroller={$SCROLLER}
 	bind:centroid={$CENTROID}
 	id="feed"
-	class="feed mt1"
+	class={`feed mt1 grow flex wrap ${!gridMode ? 'feed-list-mode' : 'feed-grid-mode' }`}
+	{gridMode}
 	data={ posts.data }
 	{keys}
 	component={PostItem}>

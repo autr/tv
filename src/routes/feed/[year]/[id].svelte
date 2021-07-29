@@ -15,7 +15,7 @@
 	$: icons = {
 		width: size,
 		height: size,
-		stroke: 1,
+		stroke: 2,
 		color: 'var(--color)'
 	}
 

@@ -2,6 +2,7 @@
 
 	import { browser, dev } from '$app/env'
 	import { base, assets } from '$app/paths';
+	import PostControls from '$lib/PostControls.svelte'
 
 	import { Media, utils } from 'ezekit'
 	import { CENTROID, SCROLLER, EZE } from '$lib/_stores.js'
@@ -26,7 +27,7 @@
 	$: media_ = media || [] 
 
 	$: common = { 
-		class: "post-media-link flex grow w100pc feed-media-item mb1 rel"
+		class: "post-media-inner flex grow w100pc feed-media-item rel"
 	}
 
 	$: em = (embed || [])[0]
@@ -37,45 +38,35 @@
 		id: (embed || [])[0]?.id
 	}
 
-	function onClick( e, mime ) {
-		// if (!link != -1 ) e.preventDefault()
-	}
 
 	$: root = `/posts/${utils.year(date)}/`
 
 
 </script>
-{#if embed}
-	<div 
-		on:click={ onClick }
-		{...common} 
-		id={`${id}-media-embed`}>
-		<Media 
-			bind:scroller={$SCROLLER}
-			bind:centroid={$CENTROID}
-			bind:eze={$EZE}
-			{root}
-			{format}
-			file={iframe}
-			bind:orientation={orientation}
-			autohide={ autohide ? `${id}-media-embed` : null}/>
-	</div>
+{#if embed.length != 0}
+	<Media 
+		bind:scroller={$SCROLLER}
+		bind:centroid={$CENTROID}
+		bind:eze={$EZE}
+		{root}
+		{format}
+		file={iframe}
+		bind:orientation={orientation}
+		autohide={ autohide ? `${id}-media-embed` : null}/>
 	<!-- <div class="space h4em" /> -->
 {/if}
 {#each media_ as file, idx} 
-	<div
-		on:click={ onClick }
-		{...common}
-		id={`${id}-media-${idx}`}>
-		<a {href} class="fill unclickable activ8 z-index22"></a>
-		<Media 
-			bind:scroller={$SCROLLER}
-			bind:centroid={$CENTROID}
-			bind:eze={$EZE}
-			{root}
-			{format}
-			{file} 
-			bind:orientation={orientation}
-			autohide={ autohide ? `${id}-media-${idx}` : null} />
-	</div>
+	<a {href} class="fill unclickable activ8 z-index22"></a>
+	<Media 
+		bind:scroller={$SCROLLER}
+		bind:centroid={$CENTROID}
+		bind:eze={$EZE}
+		{root}
+		{format}
+		{file} 
+		bind:orientation={orientation}
+		autohide={ autohide ? `${id}-media-${idx}` : null} />
 {/each}
+
+
+<PostControls {...$$props} />

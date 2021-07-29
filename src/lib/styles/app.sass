@@ -9,23 +9,23 @@
 /* purgecss start ignore */
 
 
-@font-face 
-	font-family: 'b-a-s-i-s-g-r-o-s'
-	font-weight: bold 
-	font-style: italic, oblique, normal
-	src: url('/fonts/b-a-s-i-s-g-r-o-s_3.ttf') 
+// @font-face 
+// 	font-family: 'b-a-s-i-s-g-r-o-s'
+// 	font-weight: bold 
+// 	font-style: italic, oblique, normal
+// 	src: url('/fonts/b-a-s-i-s-g-r-o-s_3.ttf') 
 
+
+// @font-face 
+// 	font-family: 'b-a-s-i-s-g-r-o-s' 
+// 	font-weight: normal
+// 	font-style: italic, oblique, normal
+// 	src: url('/fonts/b-a-s-i-s-g-r-o-s_3.ttf')
 
 @font-face 
 	font-family: 'b-a-s-i-s-g-r-o-s' 
-	font-weight: normal
-	font-style: italic, oblique, normal
-	src: url('/fonts/b-a-s-i-s-g-r-o-s_3.ttf')
-
-@font-face 
-	font-family: 'b-a-s-i-s-g-r-o-s' 
-	font-weight: thin
-	font-style: italic, oblique, normal
+	// font-weight: thin
+	// font-style: italic, oblique, normal
 	src: url('/fonts/b-a-s-i-s-g-r-o-s_2.ttf') 
 
 $bg-a: var(--bg)
@@ -44,16 +44,33 @@ html, body
 	*
 		-webkit-tap-highlight-color: transparent
 
-	.post-media-link
-		cursor: initial
-		&.link
-			cursor: pointer
-		&:active
-			background: transparent!important
+	#feed
+		&.feed-list-mode
+			+column( center, flex-start )
+			.post-item
+				+flex
+				+column( center, flex-start )
+				max-width: 720px
+				.post-media
+					border: 2px solid var(--color)
+				// +flex
+				// flex-grow: 1
+				// +row( flex-start, flex-start )
+				// flex-direction: row-reverse
+				// > *
+				// 	flex-grow: 1
+				// 	flex-basis: 0
+		&.feed-grid-mode
+			+row( center, flex-start )
+			> *
+				max-width: 33.3333%
+				flex-basis: no-baiss
+				flex-grow: 1
+
 
 	@media only screen and (max-width: 576px)
 		#nowt 
-			border-bottom: 1px solid var(--color)
+			border-bottom: var(--borders) solid var(--color)
 			margin-bottom: 1em
 		#footer, #footer *
 			flex-direction: column-reverse!important
@@ -68,10 +85,6 @@ html, body
 		#nowt 
 			margin-bottom: -1em
 	@media only screen and (min-width: 768px)
-		#feed
-			.post-orientation-portrait
-				.post-text, .media
-					margin: 0em 12em
 		#subscribe-page
 			margin: 0em 19em
 
@@ -105,16 +118,32 @@ html, body
 		border-left-width: var(--borders)
 		border-left-style: solid
 
+	.minusbb
+		margin-bottom: calc(#{var(--borders)} * -1)
+	.minusbt
+		margin-top: calc(#{var(--borders)} * -1)
+	.minusbr
+		margin-right: calc(#{var(--borders)} * -1)
+	.minusbl
+		margin-left: calc(#{var(--borders)} * -1)
+
 
 	#autr
 		svg
 			path
-				stroke-width: 1px
-				fill: transparent
-				fill: var(--color)
 				+none
-				&:nth-child( 3 )
+				&.eq3
 					+block
+			path
+				stroke-width: 0px
+				fill: var(--color)
+			// path.outline
+			// 	stroke-width: 3.5px
+			// 	fill: transparent
+			// 	stroke: var(--color)
+			// path.overlay
+			// 	stroke-width: 0px
+			// 	fill: var(--bg)
 
 
 	@for $i from 1 through 10

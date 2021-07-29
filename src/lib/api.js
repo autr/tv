@@ -22,12 +22,20 @@ const filterPost = post => {
 }
 const feed = async fetch => {
 	let data = await get( { posts: '/posts.json' }, fetch )
-
 	return data.posts.filter( p => {
 		return p.status == 'published'
 	}).sort( (a,b) => {
 		return b.date - a.date
 	}).map( filterPost )
+}
+
+const products = async fetch => {
+	let {products} = await get( { products: '/products.json' }, fetch )
+	return products.filter( p => {
+		return p.status == 'published'
+	}).sort( (a,b) => {
+		return b.date - a.date
+	})
 }
 
 const post = async (params, fetch) => {
@@ -57,7 +65,8 @@ const post = async (params, fetch) => {
 const api = {
 	get,
 	feed,
-	post
+	post,
+	products
 }
 
 export default api

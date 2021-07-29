@@ -1,6 +1,7 @@
 <script>
 
-	import { PostMedia, PostText } from '$lib'
+	import PostMedia from './PostMedia.svelte'
+	import PostText from './PostText.svelte'
 
 	export let id 
 	export let text
@@ -23,6 +24,25 @@
 
 <div 
 	{id}
+	class="post-item post-orientation-{orientation} ">
+	<PostText {...$$props} />
+	<div class="flex row-stretch-stretch">
+		<div class="post-media flex column grow no-basis rel">
+			<PostMedia 
+				bind:orientation={orientation}
+				{...$$props} 
+				autohide={true}  />
+		</div>
+	</div>
+
+	<slot />
+
+	<div class="space h2em" />
+</div>
+
+<!-- 
+<div 
+	{id}
 	class="post-item flex column-center-center grow wrap post-orientation-{orientation}">
 	<div class="flex row-stretch-stretch">
 		<div class="post-media flex column grow no-basis">
@@ -37,4 +57,4 @@
 	<slot />
 
 	<div class="space h2em" />
-</div>
+</div> -->
