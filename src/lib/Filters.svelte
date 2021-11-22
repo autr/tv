@@ -6,7 +6,7 @@
     console.log($page, $session)
 
     let classes = {
-        a: 'no-basis unclickable flex row-center-center ptb1 mr1',
+        a: 'no-basis unclickable flex row-center-center ptb1 mr1 f0',
         span: 'p0-4 block bb br bt bl radius1em mr1'
     }
 

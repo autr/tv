@@ -9,4 +9,4 @@
 	import { Feed } from '$lib'
 	export let data
 </script>
-<Feed {data} />
+<Feed {data} /> 

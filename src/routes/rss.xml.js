@@ -3,7 +3,7 @@ import fetch from 'cross-fetch'
 
 const xml = async e => {
 
-	const res = await fetch( `http://localhost:3000/api/autr/items/posts`  )
+	const res = await fetch( `http://localhost:3000/api/items/posts`  )
 	if (!res.ok) {
 		const { message } = await res.json()
 		return { error: new Error(message) }

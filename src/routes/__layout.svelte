@@ -21,8 +21,8 @@
 	PKG.set({ ...data.pkg })
 	AUTOPLAYING.set( true )
 	EZE.set(  {
-		api: 'http://localhost:3000/api/autr/',
-		editor: 'http://localhost:5000/autr/',
+		api: 'http://localhost:3000/api/',
+		editor: 'http://localhost:5000/',
 		project: '/Users/gilbert/Code/tv/',
 		assets: '/static',
 		copy: dev || !browser

@@ -1,7 +1,7 @@
 :root {
 
-	--container: 1250px;
-	--font-size: 15px;
+	--container: 1112px;
+	--font-size: 17px;
 
 	--borders: 2px;
 	--stroke-width: 2px;
@@ -15,9 +15,9 @@
 	--color-bright: hsl( 200, 10%, 12% );
 	--color-fade: hsl( 200, 10%, 50% );
 
-	--bg: hsl( 200, 10%, 90% );
-	--bg-pop: hsl( 200, 10%, 100% );
-	--bg-sink: hsl( 200, 10%, 50% );
+	--bg: hsl( 200, 10%, 95% );
+	--bg-pop: hsl( 200, 10%, 97% );
+	--bg-sink: hsl( 200, 10%, 93% );
 }
 
 .dark {
@@ -51,7 +51,7 @@
 	--input-padding: 0.6em 1em;
 	--button-padding: 1em 3em;
 
-	--font: 'b-a-s-i-s-g-r-o-s', sans-serif;
+	--font: 'c-i-r-c-u-l-a-r_2', sans-serif;
 	--font-monospace: monospace;
 	--font-serif: serif;
 	--font-sans-serif: sans-serif;

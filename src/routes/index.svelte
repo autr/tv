@@ -9,4 +9,9 @@
 	import { Feed } from '$lib'
 	export let data
 </script>
+
+<svelte:head>
+	<title>Gilbert Sinnott | Artist & Designer</title>
+</svelte:head>
+
 <Feed {data} />

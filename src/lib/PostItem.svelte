@@ -2,6 +2,10 @@
 
 	import PostMedia from './PostMedia.svelte'
 	import PostText from './PostText.svelte'
+	import dayjsCJS from 'dayjs'
+	import dayjsESM from 'dayjs/esm'
+
+	let dayjs = !dayjsCJS ? dayjsESM : dayjsCJS
 
 	export let id 
 	export let text
@@ -15,46 +19,38 @@
 	export let status
 
 
-	let orientation = false
-	
-
-
-	
 </script>
 
 <div 
 	{id}
-	class="post-item post-orientation-{orientation} ">
-	<PostText {...$$props} />
+	class="rel flex row-center-stretch mb4 w100pc wrap">
+	<div class="grow cmb1 no-basis flex column-flex-start-flex-start">
+		<span class=" f1">{ dayjs(date * 1000).format("DD MMM YYYY") }</span>
+		<span class="f0">{text}</span>
+	</div>
+	<div class="w2em" />
+	<div class="basis45pc grow overflow-hidden flex column cmb2">
+		<PostMedia 
+			
+			{...$$props} 
+			autohide={true}  />
+	</div>
+	<div class="w2em" />
+	<div class="grow f0 cmb1 no-basis">
+		<div></div>
+	</div>
+
+				<!-- 
 	<div class="flex row-stretch-stretch">
 		<div class="post-media flex column grow no-basis rel">
 			<PostMedia 
-				bind:orientation={orientation}
-				{...$$props} 
-				autohide={true}  />
-		</div>
-	</div>
-
-	<slot />
-
-	<div class="space h2em" />
-</div>
-
-<!-- 
-<div 
-	{id}
-	class="post-item flex column-center-center grow wrap post-orientation-{orientation}">
-	<div class="flex row-stretch-stretch">
-		<div class="post-media flex column grow no-basis">
-			<PostMedia 
-				bind:orientation={orientation}
 				{...$$props} 
 				autohide={true}  />
 		</div>
 	</div>
 	<PostText {...$$props} />
 
-	<slot />
+	<slot /> -->
 
 	<div class="space h2em" />
-</div> -->
+</div>

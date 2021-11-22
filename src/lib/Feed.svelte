@@ -13,8 +13,10 @@
 
 	let posts = []
 
+	const ALL = 'all'
+
 	function filter( year ) {
-		posts = utils.posts( data, $page.params.year, 'latest' )
+		posts = utils.posts( data, $page.params.year, ALL )
 		const idx = parseInt( Math.random() * (posts.data.length - 1) )
 		const item = posts.data[ idx ]
 		random = `/feed/${utils.year(item?.date)}/${item?.id}`
@@ -24,13 +26,13 @@
 
 	let random
 
-	const href = year => `/feed/${year == 'latest' ? '' : year}`
+	const href = year => `/feed/${year == ALL ? '' : year}`
 
 
 	let current = null
 	let checked = {}
 	function setChecked( years_, year_, current_ ) {
-		if (year_ == '') year_ = 'latest'
+		if (year_ == '') year_ = ALL
 		for (let i = 0; i < years_.length; i++) {
 			const y = years_[i]
 			const url = year_ == y
@@ -75,7 +77,7 @@
 
 
 <svelte:head>
-	<title>Autr | Feed | {$page?.params?.year || `Latest work, photos, videos`}</title>
+	<title>Autr | Gilbert Sinnott | Newsfeed {$page?.params?.year || (new Date()).getFullYear()} ({posts.data.length} images & videos)</title>
 </svelte:head>
 
 <!-- <button on:click={e => (gridMode = !gridMode)}>TOGGLE MDOE {gridMode}</button> -->
@@ -84,7 +86,7 @@
 	<div class="flex row wrap rel grow w100pc">
 		{#each posts.years as year}
 			<a 
-				class="unclickable flex row-center-center"
+				class="unclickable f0 flex row-center-center"
 				on:click={ e => onClick( e, year ) }
 				href={ href( year ) }>
 				<label class="radio ptb0-5 activ8">
@@ -98,6 +100,7 @@
 		{/each}
 		<div class="align-self-flex-end grow flex row-flex-end-center">
 			<a href={random} class="unclickable ptb0-5">random</a>
+			<a href="/rss.xml" class="button unclickable ptb0-2 plr1 ml1">RSS</a>
 		</div>
 		<a href={random} class="block h2em w4em unclickable align-self-center flex row-start-center abs r0 b0-3 none" >
 			<span class="p0-3"></span>
@@ -117,13 +120,13 @@
 	class="sticky t0 l0 h0px w100vw row-flex-end-center z-index99 pointer">
 	<a
 		href="#top"
-		class="b1-solid flex row-center-center rel t1 r0"
+		class="border flex row-center-center rel t1 r0"
 		style={widthheight + rotate + 'margin-top:1px'}>
 		<RadCool
 			type="arrow"
 			color={ 'var(--color)'}
 			misc={{rotate: 1}}
-			stroke={1}
+			stroke={1.5}
 			width={size * 0.6}
 			height={size * 0.6} />
 	</a>
@@ -150,7 +153,7 @@
 			style="transform-origin: 50% 50%; transform: rotate(90deg);"
 			color={ 'var(--color)'}
 			misc={{rotate: 1}}
-			stroke={1}
+			stroke={1.5}
 			width={45 * 0.8}
 			height={45 * 0.8} />
 	</a>

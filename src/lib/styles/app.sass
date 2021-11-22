@@ -1,6 +1,7 @@
+
+@import './../../../static/fonts' 
 @import './_theme'
 @import './../../../../sassis/src/sassis'
- 
 
 +sassis
 +shorthand
@@ -8,25 +9,7 @@
 
 /* purgecss start ignore */
 
-
-// @font-face 
-// 	font-family: 'b-a-s-i-s-g-r-o-s'
-// 	font-weight: bold 
-// 	font-style: italic, oblique, normal
-// 	src: url('/fonts/b-a-s-i-s-g-r-o-s_3.ttf') 
-
-
-// @font-face 
-// 	font-family: 'b-a-s-i-s-g-r-o-s' 
-// 	font-weight: normal
-// 	font-style: italic, oblique, normal
-// 	src: url('/fonts/b-a-s-i-s-g-r-o-s_3.ttf')
-
-@font-face 
-	font-family: 'b-a-s-i-s-g-r-o-s' 
-	// font-weight: thin
-	// font-style: italic, oblique, normal
-	src: url('/fonts/b-a-s-i-s-g-r-o-s_2.ttf') 
+ 
 
 $bg-a: var(--bg)
 $bg-b: var(--bg-pop)
@@ -40,6 +23,15 @@ html, body
 
 	letter-spacing: 0.05em
 	overflow: hidden
+	.post-media
+		.post-controls.playing
+			left: -9999px
+			transition: left 0s ease 2s
+	.post-media:hover 
+		.post-controls, .post-controls.playing
+			left: 0px
+			transition: left 0s ease 0s
+
 
 	*
 		-webkit-tap-highlight-color: transparent
@@ -47,19 +39,6 @@ html, body
 	#feed
 		&.feed-list-mode
 			+column( center, flex-start )
-			.post-item
-				+flex
-				+column( center, flex-start )
-				max-width: 720px
-				.post-media
-					border: 2px solid var(--color)
-				// +flex
-				// flex-grow: 1
-				// +row( flex-start, flex-start )
-				// flex-direction: row-reverse
-				// > *
-				// 	flex-grow: 1
-				// 	flex-basis: 0
 		&.feed-grid-mode
 			+row( center, flex-start )
 			> *
@@ -89,9 +68,6 @@ html, body
 			margin: 0em 19em
 
 
-	h1, h2, h3, h4, h5, h6 
-		font-family: 'b-a-s-i-s-g-r-o-s'
-		font-weight: thin
 
 	.dot 
 		$sz: 0.5em
@@ -132,18 +108,18 @@ html, body
 		svg
 			path
 				+none
-				&.eq3
+				&.eq4
 					+block
 			path
 				stroke-width: 0px
 				fill: var(--color)
-			// path.outline
-			// 	stroke-width: 3.5px
-			// 	fill: transparent
-			// 	stroke: var(--color)
-			// path.overlay
-			// 	stroke-width: 0px
-			// 	fill: var(--bg)
+			path.outline
+				stroke-width: 3.5px
+				fill: transparent
+				stroke: var(--color)
+			path.overlay
+				stroke-width: 0px
+				fill: var(--bg)
 
 
 	@for $i from 1 through 10

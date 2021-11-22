@@ -13,11 +13,11 @@
 	
 	const menu = {
 		'Feed': '/feed/',
-		'Works': '/works',
+		'Projects': '/work',
 		'Shop': '/shop',
-		'Code': '/code',
-		'About': '/about',
-		'Mailing list': '/subscribe',
+		// 'Code': '/code',
+		'Bio': '/about',
+		// 'Mailing List': '/subscribe',
 		// 'Downloads': '/downloads',
 		// 'Hello': 'hello'
 		// 'Links': '/links',
@@ -28,7 +28,7 @@
 
 	}
 
-	const size = 45
+	const size = 30
 
 	let lightdark = {
 		width: size,
@@ -130,7 +130,7 @@
 						color={ 'var(--color)'}
 						misc={{rotate: 1}}
 						width={size * 0.8}
-						height={size * 0.8} />
+						height={size * 0.8} /> 
 				{:else}
 					{text}
 				{/if}

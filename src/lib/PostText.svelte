@@ -20,18 +20,18 @@
 
 </script>
 
-<div class="post-text flex row-space-between-start">
+<div class="post-text flex row-space-between-start ">
 	<div class="grow flex column-center-start">
 		<a class="unclickable flex column-center-center activ8" {href}>
-			<span class="minusbb filled p0-5 plr2">
-
-				<Timestamp class=" flex" date={date} {format}></Timestamp>
-			</span>
 			{#if text.trim() != ''}
-				<span class="minusbb p0-5 uppercase plr2 border f1 text-center flex column-center-center">
+				<span class="minusbt p0-5 uppercase plr2 border f1 text-center flex column-center-center">
 					{text}
 				</span>
 			{/if}
+			<span class="minusbt filled p0-5 plr2">
+
+				<Timestamp class=" flex" date={date} {format}></Timestamp>
+			</span>
 		</a>
 	</div>
 </div>

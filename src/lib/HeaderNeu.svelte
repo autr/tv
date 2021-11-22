@@ -126,7 +126,7 @@
                         type="arrow"
                         color={ 'var(--color)'}
                         misc={{rotate: 1}}
-                        stroke={1}
+                        stroke={2}
                         width={size * 0.8}
                         height={size * 0.8} />
                 {:else}
